@@ -21,12 +21,11 @@ class NewVisitorTest(unittest.TestCase):
 		inputbox.send_keys(Keys.ENTER) 
 		time.sleep(1) 
 		
-		table = self.browser.find_element_by_id('id_list_table')
+		table = self.browser.find_element_by_id('id_learning_log_table')
 		rows = table.find_elements_by_tag_name('tr') 
-		self.assertTrue(
-			any(row.text == 'the chariot takes in a straight line' for row in rows),
-			"New learning log did not appear in table"
-		)
+		#self.assertTrue(
+		self.assertIn('1:I learned Chess Today', [row.text for row in rows])
+		
 		self.fail('Finish the test!')    #失败后返回指定的错误信息  
 
 #使用这个语句检查自己是否在命令行中运行，而不是在其他脚本中导
