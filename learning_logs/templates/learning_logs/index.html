@@ -1,15 +1,4 @@
-<html>
-	<head>
-		<title>Leaning Log</title>
-	</head>
-	<body>
-		<h1>Your leaning log list</h1>
-		<form method="POST">
-			<input name="learning_log_text" id = "id_new_learning_log" placeholder="Enter a learning log" />
-			{% csrf_token %}
-		</form>
-		<table id="id_learning_log_table"> 
-			<tr><td>1:{{ new_learning_log_text }}</td></tr>
-		</table>
-	</body>
-</html>
+{% extends "learning_logs/base.html" %}
+{% block content %}
+	<p>Learning Log helps you keep track of your learning, for any topic you're learning about.</p>
+{% endblock content %}

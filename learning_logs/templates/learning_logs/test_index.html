@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Leaning Log</title>
+	</head>
+	<body>
+		<h1>Your leaning log list</h1>
+		<form method="POST">
+			<input name="learning_log_text" id = "id_new_learning_log" placeholder="Enter a learning log" />
+			{% csrf_token %}
+		</form>
+		<table id="id_learning_logs_table"> 
+			{% for learning_log in learning_logs %}
+				<tr><td>1:{{learning_log.text }}</td></tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
+

@@ -18,9 +18,10 @@ class Entry(models.Model):
 	def __str__(self):
 		"""返回模型的字符串表示"""	
 		return self.text[:50] + "..."
-		
-class Item(models.Model):
+"""		
+class learning_log(models.Model):
 	text = models.TextField(default='')
+"""
 	
 	
 	

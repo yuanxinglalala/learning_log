@@ -8,7 +8,7 @@ class NewVisitorTest(unittest.TestCase):
 	def tearDown(self): 	   #在测试方法之后运行，关闭浏览器
 		self.browser.quit()
 	def check_for_row_in_list_table(self, row_text):
-		table = self.browser.find_element_by_id('id_learning_log_table')
+		table = self.browser.find_element_by_id('id_learning_logs_table')
 		rows = table.find_elements_by_tag_name('tr')
 		self.assertIn(row_text, [row.text for row in rows])
 	def test_can_start_a_list_and_retrieve_it_later(self): 
@@ -22,18 +22,17 @@ class NewVisitorTest(unittest.TestCase):
 				'Enter a learning log')
 		inputbox.send_keys('I learned Chess Today') 
 		inputbox.send_keys(Keys.ENTER) 
-		time.sleep(1) 
-		self.check_for_row_in_list_table('1:I learned Chess Today')
+		#time.sleep(1) 
 		
 		inputbox = self.browser.find_element_by_id('id_new_learning_log') 
 		inputbox.send_keys('I learned Climbing Today') 
 		inputbox.send_keys(Keys.ENTER) 
-		time.sleep(1) 
+		#time.sleep(1) 
 		
 		self.check_for_row_in_list_table('1:I learned Chess Today')
 		self.check_for_row_in_list_table('2:I learned Climbing Today')
 		
-		table = self.browser.find_element_by_id('id_learning_log_table')
+		table = self.browser.find_element_by_id('id_learning_logs_table')
 		rows = table.find_elements_by_tag_name('tr') 
 		#self.assertTrue(
 		self.assertIn('1:I learned Chess Today', [row.text for row in rows])
